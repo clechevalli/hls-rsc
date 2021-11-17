@@ -1,36 +1,40 @@
-## **Procédure d’installation pour la démo HLS :**
+## **Installation  procedure to recreate HLS demo**
 
-**Installer un serveur Nginx-Php :**
-
-Exécuter les commandes suivantes :
+**Install Nginx-Php server**
 
     sudo -s
-    apt install nginx php7.4-fpm php7.4 npm
+    apt install nginx php7.4-fpm php7.4 npm   
     service nginx stop
     service php7.4-fpm stop
-
-**Installer hls.js :**
-
-Exécuter les commandes suivantes :
-
     exit
+
+**Install hls.js**
+
+Clone the repository :
+
     cd /var/www/html/
-    git clone [https://github.com/video-dev/hls.js.git](https://github.com/video-dev/hls.js.git)
+    git clone https://github.com/video-dev/hls.js.git
+    
+Run hls.js wih npm in order to create usefull files
+
     cd hls.js
     npm install ci
     npm run dev
 
-Effectuer Ctrl+c pour arrêter *npm*
+Stop npm with Ctrl-C
 
-**Récupérer le dépôt *hls-rsc* et mettre en place les scripts d'encodage :**
+**Clone the repository *hls-rsc* and set encoding scripts**
 
     cd /var/www/html
-    git clone https://github.com/video-dev/hls.js.git
+    git clone https://github.com/clechevalli/hls-rsc.git
     mkdir live
     mkdir video
     cp hls-rsc/create_vod.sh .
     cp hls-rsc/create_live.sh .
-**Appliquer la nouvelle configuration :**
+
+create_vod.sh and create_live.sh are shell scripts wich use Ffmpeg to encript and fragment a mp4 video into m3u8, in different quality, for Live and Vod.
+
+**Apply nginx configuration**
 
     sudo -s
     rm /etc/nginx/sites-available/default
@@ -46,25 +50,31 @@ Effectuer Ctrl+c pour arrêter *npm*
     cd ..
     chmod a+x live
     chmod a+x video
-   **Démarrer les services :**
+    
+   **Run services**
    
-
     service nginx start
     service php7.4-fpm start
-**Ajout des hosts :**
-Sur Windows, il faut ajouter cette ligne dans le fichier *C:\Windows\System32\drivers\etc\hosts* :
+    
+**Add hosts**
+On Windows, you have to add this line in the file : *C:\Windows\System32\drivers\etc\hosts* :
 
     localhost hlstest.com videos.com live.com
-  Sur Linux, il faut ajouter cette ligne dans le fichier */etc/hosts* :
+On  Linux, you have to add this line in the file */etc/hosts* :
 
     localhost hlstest.com videos.com live.com
 
-## Tester la démo :
-Pour démarrer la démonstration, il faut trouver une vidéo assez longue (7-8min) et la mettre dans le dossier */var/www/html/*. Ensuite, il faut exécuter la commande :
+## Test the demo :
+To lauch the demo, you have to find a video (7-8 mn) and put it in the directory */var/www/html/*. Then, execute the following command :
 
     /var/www/html/create_vod.sh
-Cette commande permet de créer les différentes qualité de la vidéo de test et de créer les fichiers essentiels à HLS. Il faut ensuite attendre l'encodage complet de la vidéo.
 
-Pour tester le streaming VOD, il faut ouvrir un navigateur et se rendre sur la page hlstest.com/demo/. Vérifier que **VOD Test** est bien sélectionné dans la liste déroulante.
+This can be long, depending on your computer power.
 
-Pour tester le streaming live, il faut cliquer sur le bouton en bas de page **Activer live** et sélectionner **Live Test** dans la liste déroulante.
+In order to test VOD streaming, you have to open a browser and go to hlstest.com/demo/. Select **VOD Test** in the list.
+
+In order to test Live streaming, you have to open a browser and go to hlstest.com/demo/. Select **Live Test** in the list. Then you have to click on the button *Active live*. 
+
+The demonstration allows you to change the quality of the video, to see the logs, and modify few others parameters. 
+
+That's it ! Well done !
