@@ -19,6 +19,7 @@ Exécuter les commandes suivantes :
     npm run dev
 
 Effectuer Ctrl+c pour arrêter *npm*
+
 **Récupérer le dépôt *hls-rsc* et mettre en place les scripts d'encodage :**
 
     cd /var/www/html
