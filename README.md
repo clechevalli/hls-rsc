@@ -1,6 +1,6 @@
-## **Installation  procedure to recreate HLS demo :**
+## **Installation  procedure to recreate HLS demo**
 
-**Install Nginx-Php server:**
+**Install Nginx-Php server**
 
     sudo -s
     apt install nginx php7.4-fpm php7.4 npm   
@@ -8,7 +8,7 @@
     service php7.4-fpm stop
     exit
 
-**Install hls.js :**
+**Install hls.js**
 
 Clone the repository :
 
@@ -23,7 +23,7 @@ Run hls.js wih npm in order to create usefull files
 
 Stop npm with Ctrl-C
 
-**Clone the repository *hls-rsc* and set encoding scripts :**
+**Clone the repository *hls-rsc* and set encoding scripts**
 
     cd /var/www/html
     git clone https://github.com/clechevalli/hls-rsc.git
@@ -34,7 +34,7 @@ Stop npm with Ctrl-C
 
 create_vod.sh and create_live.sh are shell scripts wich use Ffmpeg to encript and fragment a mp4 video into m3u8, in different quality, for Live and Vod.
 
-**Apply nginx configuration :**
+**Apply nginx configuration**
 
     sudo -s
     rm /etc/nginx/sites-available/default
@@ -51,12 +51,12 @@ create_vod.sh and create_live.sh are shell scripts wich use Ffmpeg to encript an
     chmod a+x live
     chmod a+x video
     
-   **Run services :**
+   **Run services**
    
     service nginx start
     service php7.4-fpm start
     
-**Add hosts :**
+**Add hosts**
 On Windows, you have to add this line in the file : *C:\Windows\System32\drivers\etc\hosts* :
 
     localhost hlstest.com videos.com live.com
