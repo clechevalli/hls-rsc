@@ -1,6 +1,7 @@
 ## **Procédure d’installation pour la démo HLS :**
 
 **Installer un serveur Nginx-Php :**
+
 Exécuter les commandes suivantes :
 
     sudo -s
@@ -9,6 +10,7 @@ Exécuter les commandes suivantes :
     service php7.4-fpm stop
 
 **Installer hls.js :**
+
 Exécuter les commandes suivantes :
 
     exit
@@ -62,5 +64,7 @@ Pour démarrer la démonstration, il faut trouver une vidéo assez longue (7-8mi
 
     /var/www/html/create_vod.sh
 Cette commande permet de créer les différentes qualité de la vidéo de test et de créer les fichiers essentiels à HLS. Il faut ensuite attendre l'encodage complet de la vidéo.
+
 Pour tester le streaming VOD, il faut ouvrir un navigateur et se rendre sur la page hlstest.com/demo/. Vérifier que **VOD Test** est bien sélectionné dans la liste déroulante.
+
 Pour tester le streaming live, il faut cliquer sur le bouton en bas de page **Activer live** et sélectionner **Live Test** dans la liste déroulante.
