@@ -47,6 +47,7 @@ create_vod.sh and create_live.sh are shell scripts wich use Ffmpeg to encript an
     ln -s /etc/nginx/sites-available/live /etc/nginx/sites-enabled/
     cp hls-demo.js /var/www/html/hls.js/dist/
     cp index.php /var/www/html/hls.js/demo/
+    cp style.css /var/www/html/hls.js/demo/
     cd ..
     chmod a+x live
     chmod a+x video
