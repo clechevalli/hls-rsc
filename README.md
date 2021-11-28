@@ -3,7 +3,7 @@
 **Install Nginx-Php server**
 
     sudo -s
-    apt install nginx php7.4-fpm php7.4 npm   
+    apt install nginx php7.4-fpm php7.4 npm ffmpeg
     service nginx stop
     service php7.4-fpm stop
     exit
