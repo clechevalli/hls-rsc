@@ -41994,16 +41994,16 @@ module.exports = {
 	description: 'VOD Test',
 	abr: true
 	},
+  LiveExample: {
+	url: 'http://live.com/master.m3u8',
+	description: 'Live Test',
+	abr: true
+	},
   bigBuckBunny480p: {
     url: 'https://test-streams.mux.dev/x36xhzz/url_6/193039199_mp4_h264_aac_hq_7.m3u8',
     description: 'Big Buck Bunny - 480p only',
     abr: false,
     skip_ua: ['internet explorer']
-  },
-  LiveExample: {
-    url: 'http://live.com/master.m3u8',
-    description: 'Live Test',
-    abr: true
   },
   //   AppleLowLatencyHls: {
   //     url: 'https://ll-hls-test.apple.com/master.m3u8',
